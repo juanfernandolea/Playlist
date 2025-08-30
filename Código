@@ -1,0 +1,39 @@
+# Código
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Playlist {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> playlist = new ArrayList<>();
+        int opcion;
+        do {
+            System.out.println("\n1. Agregar canción");
+            System.out.println("2. Mostrar playlist");
+            System.out.println("3. Eliminar canción");
+            System.out.println("4. Salir");
+            System.out.print("Elige una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+            if (opcion == 1) {
+                System.out.print("Nombre de la canción: ");
+                String cancion = sc.nextLine();
+                playlist.add(cancion);
+            } else if (opcion == 2) {
+                System.out.println("Playlist:");
+                for (int i = 0; i < playlist.size(); i++) {
+                    System.out.println((i + 1) + ". " + playlist.get(i));
+                }
+            } else if (opcion == 3) {
+                System.out.println("Ingresa el número de la canción a eliminar:");
+                for (int i = 0; i < playlist.size(); i++) {
+                    System.out.println((i + 1) + ". " + playlist.get(i));
+                }
+                int eliminar = sc.nextInt();
+                if (eliminar > 0 && eliminar <= playlist.size()) {
+                    playlist.remove(eliminar - 1);
+                    System.out.println("Canción eliminada.");
+                } else {
+                    System.out.println("Número inválido.");
+                }}
+        } while (opcion != 4);
+    }}
